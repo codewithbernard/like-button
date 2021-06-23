@@ -17,6 +17,15 @@ $primary: #1dd1a1;
     font-size: 16px;
     font-weight: 600;
 
+    &:hover, &:active, &:focus {
+        svg {
+            transform: translateY(-2px) rotate(8deg);
+            #thumb-end {
+                transform: rotate(45deg) translate(5px,-45px);
+            }
+        }
+    }
+
     .like-button {
         display: flex;
         align-items: center;
@@ -27,5 +36,10 @@ $primary: #1dd1a1;
         height: 22px;
         margin-right: 8px;
         transform: translateY(-2px);
+        transition: transform .2s;
+
+        #thumb-end {
+            transition: transform .2s;
+        }
     }
 }
