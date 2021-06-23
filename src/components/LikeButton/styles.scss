@@ -1,3 +1,31 @@
+$dark: #222f3e;
+$darkLower: #22303f8c;
+$grey: #8395a7;
+$white: #fff;
+$primary: #1dd1a1;
+
 .like-button-wrapper {
-    display: flex;
+    display: grid;
+    place-items: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 10px $darkLower;
+    padding: 16px 24px;
+    background-color: $dark;
+    color: $white;
+    font-size: 16px;
+    font-weight: 600;
+
+    .like-button {
+        display: flex;
+        align-items: center;
+    }
+
+    svg {
+        width: 22px;
+        height: 22px;
+        margin-right: 8px;
+        transform: translateY(-2px);
+    }
 }

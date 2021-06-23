@@ -1,0 +1,10 @@
+<svg width="84" height="70" viewBox="0 0 84 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="hand">
+        <rect id="Rectangle 1" y="18" width="20" height="52" rx="5" fill="white"/>
+        <path id="Rectangle 2" d="M24 22H79C81.7614 22 84 24.2386 84 27V29C84 31.7614 81.7614 34 79 34H24V22Z" fill="white"/>
+        <path id="Rectangle 5" d="M24 58H64C66.7614 58 69 60.2386 69 63V65C69 67.7614 66.7614 70 64 70H24V58Z" fill="white"/>
+        <path id="Rectangle 4" d="M24 46H69C71.7614 46 74 48.2386 74 51V53C74 55.7614 71.7614 58 69 58H24V46Z" fill="white"/>
+        <path id="Rectangle 3" d="M24 34H74C76.7614 34 79 36.2386 79 39V41C79 43.7614 76.7614 46 74 46H24V34Z" fill="white"/>
+    </g>
+    <path id="thumb" d="M34 28C40.1111 25.1364 53.0667 16.9273 56 7" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

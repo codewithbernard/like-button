@@ -1,3 +1,7 @@
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
 section {
     height: 100vh;
     display: grid;
