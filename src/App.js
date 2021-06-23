@@ -1,7 +1,15 @@
 import React from "react";
 
+import LikeButton from "./components/LikeButton";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <section>
+      <article>
+        <LikeButton />
+      </article>
+    </section>
+  );
 };
 
 export default App;
