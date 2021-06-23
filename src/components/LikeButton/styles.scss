@@ -16,13 +16,22 @@ $primary: #1dd1a1;
     color: $white;
     font-size: 16px;
     font-weight: 600;
+    will-change: background-color;
+    transition: background-color .3s;
 
-    &:hover, &:active, &:focus {
+    &:hover:not(.liked) {
         svg {
             transform: translateY(-2px) rotate(8deg);
             #thumb-end {
                 transform: rotate(45deg) translate(5px,-45px);
             }
+        }
+    }
+
+    &.liked {
+        background-color: $primary;
+        svg {
+            animation: hop 500ms;
         }
     }
 
@@ -41,5 +50,20 @@ $primary: #1dd1a1;
         #thumb-end {
             transition: transform .2s;
         }
+    }
+}
+
+@keyframes hop {
+    0% {
+        transform: rotate(8deg) translateY(-2px);
+    }
+    30% {
+        transform: rotate(-14deg) translateY(-5px);
+    }
+    65% {
+        transform: rotate(7deg) translateY(2px);
+    }
+    100% {
+        transform: rotate(0deg) translateY(-2px);
     }
 }
