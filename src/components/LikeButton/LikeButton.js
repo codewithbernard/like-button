@@ -7,16 +7,20 @@ import "./styles.scss";
 const particleList = Array.from(Array(10));
 
 const LikeButton = () => {
-  const [liked, setLiked] = useState(false);
-  const [clicked, setClicked] = useState(0);
+  const [liked, setLiked] = useState(null);
+  const [clicked, setClicked] = useState(false);
 
   return (
     <button
       onClick={() => {
         setLiked(!liked);
-        setClicked(clicked + 1);
+        setClicked(true);
       }}
-      className={cn("like-button-wrapper", { liked, clicked: clicked > 0 })}
+      onAnimationEnd={() => setClicked(false)}
+      className={cn("like-button-wrapper", {
+        liked,
+        clicked,
+      })}
     >
       {liked && (
         <div className="particles">
@@ -37,7 +41,7 @@ const LikeButton = () => {
       <div className="like-button">
         <Hand />
         <span>Like</span>
-        <span className="suffix">d</span>
+        <span className={cn("suffix", { liked })}>d</span>
       </div>
     </button>
   );

@@ -59,6 +59,7 @@ $primary: #54a0ff;
     display: flex;
     align-items: center;
     z-index: 1;
+    transform: translateX(3px);
   }
 
   .particles {
@@ -135,6 +136,17 @@ $primary: #54a0ff;
 
     #thumb-end {
       transition: transform 0.2s;
+    }
+  }
+
+  .suffix {
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+    transform: translateX(15px);
+
+    &.liked {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }
