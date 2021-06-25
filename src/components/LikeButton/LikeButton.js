@@ -6,11 +6,16 @@ import "./styles.scss";
 
 const LikeButton = () => {
   const [liked, setLiked] = useState(false);
+  const [clicked, setClicked] = useState(0);
 
   return (
     <button
-      onClick={() => setLiked(!liked)}
-      className={cn("like-button-wrapper", { liked })}
+      key={clicked}
+      onClick={() => {
+        setLiked(!liked);
+        setClicked(clicked + 1);
+      }}
+      className={cn("like-button-wrapper", { liked, clicked: clicked > 0 })}
     >
       <div className="like-button">
         <Hand />

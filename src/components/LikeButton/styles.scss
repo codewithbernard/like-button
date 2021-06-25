@@ -2,68 +2,100 @@ $dark: #222f3e;
 $darkLower: #22303f8c;
 $grey: #8395a7;
 $white: #fff;
-$primary: #1dd1a1;
+$primary: #54a0ff;
 
 .like-button-wrapper {
-    display: grid;
-    place-items: center;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 0 10px $darkLower;
-    padding: 16px 24px;
-    background-color: $dark;
-    color: $white;
-    font-size: 16px;
-    font-weight: 600;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: none;
+  cursor: pointer;
+  padding: 16px 24px;
+  color: $white;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: transparent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     will-change: background-color;
-    transition: background-color .3s;
+    transition: background-color 0.3s, transform .3s;
+    background-color: $dark;
+    box-shadow: 0 0 10px $darkLower;
+    border-radius: 8px;
+  }
 
-    &:hover:not(.liked) {
-        svg {
-            transform: translateY(-2px) rotate(8deg);
-            #thumb-end {
-                transform: rotate(45deg) translate(5px,-45px);
-            }
-        }
-    }
-
-    &.liked {
-        background-color: $primary;
-        svg {
-            animation: hop 500ms;
-        }
-    }
-
-    .like-button {
-        display: flex;
-        align-items: center;
-    }
-
+  &:hover:not(.liked) {
     svg {
-        width: 22px;
-        height: 22px;
-        margin-right: 8px;
-        transform: translateY(-2px);
-        transition: transform .2s;
-
-        #thumb-end {
-            transition: transform .2s;
-        }
+      transform: translateY(-2px) rotate(8deg);
+      #thumb-end {
+        transform: rotate(45deg) translate(5px, -45px);
+      }
     }
+  }
+
+  &.clicked {
+    &::before {
+        animation: click 300ms;
+    }
+  }
+
+  &.liked {
+    &::before {
+      background-color: $primary;
+    }
+    svg {
+      animation: hop 500ms;
+    }
+  }
+
+  .like-button {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+  }
+
+  svg {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+    transform: translateY(-2px);
+    transition: transform 0.2s;
+
+    #thumb-end {
+      transition: transform 0.2s;
+    }
+  }
 }
 
 @keyframes hop {
+  0% {
+    transform: rotate(8deg) translateY(-2px);
+  }
+  30% {
+    transform: rotate(-14deg) translateY(-5px);
+  }
+  65% {
+    transform: rotate(7deg) translateY(2px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(-2px);
+  }
+}
+
+@keyframes click {
     0% {
-        transform: rotate(8deg) translateY(-2px);
+      transform: scale(1);
     }
-    30% {
-        transform: rotate(-14deg) translateY(-5px);
-    }
-    65% {
-        transform: rotate(7deg) translateY(2px);
+    50% {
+      transform: scale(0.96);
     }
     100% {
-        transform: rotate(0deg) translateY(-2px);
+      transform: scale(1);
     }
-}
+  }
