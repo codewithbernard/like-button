@@ -18,13 +18,14 @@ $primary: #54a0ff;
 
   &::before {
     content: "";
+    z-index: 1;
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     will-change: background-color;
-    transition: background-color 0.3s, transform .3s;
+    transition: background-color 0.3s, transform 0.3s;
     background-color: $dark;
     box-shadow: 0 0 10px $darkLower;
     border-radius: 8px;
@@ -41,7 +42,7 @@ $primary: #54a0ff;
 
   &.clicked {
     &::before {
-        animation: click 300ms;
+      animation: click 300ms;
     }
   }
 
@@ -58,6 +59,71 @@ $primary: #54a0ff;
     display: flex;
     align-items: center;
     z-index: 1;
+  }
+
+  .particles {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    .particle-rotate {
+      position: absolute;
+
+      &:nth-child(1) {
+        right: 0;
+        top: 50%;
+      }
+
+      &:nth-child(2) {
+        right: 0;
+        bottom: 0;
+      }
+
+      &:nth-child(3) {
+        right: 33%;
+        bottom: 0;
+      }
+      &:nth-child(4) {
+        right: 66%;
+        bottom: 0;
+      }
+      &:nth-child(5) {
+        left: 0;
+        bottom: 0;
+      }
+      &:nth-child(6) {
+        left: 0;
+        bottom: 50%;
+      }
+      &:nth-child(7) {
+        left: 0;
+        top: 0;
+      }
+      &:nth-child(8) {
+        left: 33%;
+        top: 0;
+      }
+      &:nth-child(9) {
+        left: 66%;
+        top: 0;
+      }
+      &:nth-child(10) {
+        right: 0;
+        top: 0;
+      }
+    }
+
+    .particle-tick {
+      position: absolute;
+      z-index: -1;
+      width: 10px;
+      height: 1px;
+      background-color: $primary;
+      animation: boom 500ms;
+      transform: translateX(-25px);
+    }
   }
 
   svg {
@@ -89,13 +155,24 @@ $primary: #54a0ff;
 }
 
 @keyframes click {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(0.96);
-    }
-    100% {
-      transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
   }
+  50% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes boom {
+  0% {
+    transform: translateX(-25px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+}
